@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+ <typeAliases>
+ <typeAlias type="com.qingke.pojo.User" alias="User"/>
+  <typeAlias type="com.qingke.pojo.Product" alias="Product"/>
+   <typeAlias type="com.qingke.pojo.Order" alias="Order"/>
+ </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" /> 
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">  
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/shopping?useSSL=false"/>
+                <property name="username" value="root" />
+                <property name="password" value="123qwe"/>
+            </dataSource>
+        </environment>
+    </environments>
+     <!-- 注册userMapper.xml文件， 
+        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+    <mappers>
+        <mapper resource="com/qingke/mapping/UsersMapper.xml"/>
+          <mapper resource="com/qingke/mapping/ProductMapper.xml"/>
+           <mapper resource="com/qingke/mapping/OrderMapper.xml"/>
+       
+    </mappers>
+</configuration>
